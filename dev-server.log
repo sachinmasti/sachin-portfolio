@@ -1,0 +1,19 @@
+
+> sachin-masti-portfolio@1.0.0 dev
+> next dev --hostname 127.0.0.1 --port 3000
+
+   ▲ Next.js 15.5.19
+   - Local:        http://127.0.0.1:3000
+   - Network:      http://127.0.0.1:3000
+   - Experiments (use with caution):
+     · optimizePackageImports
+
+ ✓ Starting...
+ ✓ Ready in 9.2s
+ ○ Compiling / ...
+ ✓ Compiled / in 16.9s (1360 modules)
+ GET / 200 in 19124ms
+ GET / 200 in 1118ms
+ GET / 200 in 1439ms
+ GET / 200 in 841ms
+ GET / 200 in 1991ms
