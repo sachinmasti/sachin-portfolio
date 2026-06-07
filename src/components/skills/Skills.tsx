@@ -7,7 +7,7 @@ import { skills } from "@/data/skills";
 
 export function Skills() {
   return (
-    <section id="skills" className="section-shell py-24 sm:py-32">
+    <section id="skills" className="section-shell py-[60px]">
       <SectionHeading
         eyebrow="Skills"
         title="Technical foundations for data-driven products."
@@ -18,7 +18,7 @@ export function Skills() {
         initial="hidden"
         whileInView="visible"
         viewport={{ once: true, margin: "-80px" }}
-        className="grid gap-4 sm:grid-cols-2 lg:grid-cols-4"
+        className="grid gap-6 sm:grid-cols-2 lg:grid-cols-4"
       >
         {skills.map((skill) => {
           const Icon = skill.icon;
@@ -26,13 +26,13 @@ export function Skills() {
             <motion.article
               key={skill.name}
               variants={fadeUp}
-              whileHover={{ y: -8, borderColor: "rgba(128,82,255,0.8)" }}
-              className="premium-border min-h-48 bg-black/50 p-6 transition-colors"
+              whileHover={{ y: -8, borderColor: "rgba(255,255,255,0.1)" }}
+              className="premium-border min-h-48 bg-void p-6 transition-colors"
               data-cursor="magnetic"
             >
-              <Icon className="mb-8 text-3xl text-accent" />
-              <h3 className="text-lg font-semibold text-white">{skill.name}</h3>
-              <p className="mt-3 text-sm leading-7 text-muted">{skill.description}</p>
+              <Icon className="mb-8 text-3xl text-plum-voltage" />
+              <h3 className="text-sm font-semibold uppercase tracking-[0.05em] text-bone">{skill.name}</h3>
+              <p className="mt-3 text-[15px] font-normal leading-[1.5] tracking-[0.025em] text-smoke">{skill.description}</p>
             </motion.article>
           );
         })}

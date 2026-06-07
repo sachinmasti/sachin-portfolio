@@ -54,18 +54,18 @@ export function Chatbot() {
             initial={{ opacity: 0, y: 16, scale: 0.96 }}
             animate={{ opacity: 1, y: 0, scale: 1 }}
             exit={{ opacity: 0, y: 16, scale: 0.96 }}
-            className="mb-4 w-[calc(100vw-2.5rem)] max-w-sm border border-white/[0.12] bg-black/95 p-4 shadow-2xl shadow-black/40"
+            className="mb-4 w-[calc(100vw-2.5rem)] max-w-sm rounded-[24px] border border-white/[0.1] bg-void p-6"
           >
             <div className="mb-4 flex items-center justify-between">
               <div>
-                <p className="text-sm font-semibold text-white">Ask Sachin AI</p>
-                <p className="text-xs text-muted">Offline knowledge-base chatbot</p>
+                <p className="text-xs font-semibold uppercase tracking-[0.05em] text-bone">Ask Sachin AI</p>
+                <p className="text-[15px] font-normal leading-[1.5] tracking-[0.025em] text-smoke">Offline knowledge-base chatbot</p>
               </div>
               <button
                 type="button"
                 aria-label="Close chatbot"
                 onClick={() => setOpen(false)}
-                className="grid h-9 w-9 place-items-center rounded-full border border-line text-white"
+                className="grid h-9 w-9 place-items-center rounded-[24px] border border-line text-bone"
               >
                 <FiX />
               </button>
@@ -80,8 +80,8 @@ export function Chatbot() {
                   <p
                     className={`inline-block max-w-[85%] px-3 py-2 text-sm leading-6 ${
                       message.role === "user"
-                        ? "bg-accent text-white"
-                        : "border border-white/10 bg-white/[0.04] text-white/[0.84]"
+                        ? "rounded-[24px] bg-plum-voltage text-bone"
+                        : "rounded-[24px] border border-white/[0.1] bg-void text-ash"
                     }`}
                   >
                     {message.content}
@@ -96,7 +96,7 @@ export function Chatbot() {
                   key={item}
                   type="button"
                   onClick={() => ask(item)}
-                  className="border border-white/10 px-2.5 py-1.5 text-xs text-white/[0.76] transition hover:border-accent hover:text-white"
+                    className="rounded-[24px] border border-white/[0.1] px-2.5 py-1.5 text-xs font-semibold uppercase tracking-[0.05em] text-smoke transition hover:text-bone"
                 >
                   {item}
                 </button>
@@ -107,13 +107,13 @@ export function Chatbot() {
               <input
                 value={input}
                 onChange={(event) => setInput(event.target.value)}
-                className="min-h-11 flex-1 border border-white/10 bg-white/[0.03] px-3 text-sm text-white outline-none focus:border-accent"
+                className="min-h-11 flex-1 rounded-[24px] border border-white/[0.1] bg-void px-4 text-[15px] font-normal leading-[1.5] tracking-[0.025em] text-bone outline-none placeholder:text-smoke focus:border-plum-voltage"
                 placeholder="Ask a question..."
               />
               <button
                 type="submit"
                 aria-label="Send question"
-                className="grid h-11 w-11 place-items-center rounded-full bg-white text-black transition hover:bg-accent hover:text-white"
+                className="grid h-11 w-11 place-items-center rounded-[24px] bg-plum-voltage text-bone transition hover:opacity-90"
               >
                 <FiSend />
               </button>
@@ -126,7 +126,7 @@ export function Chatbot() {
         type="button"
         aria-label="Open Ask Sachin AI"
         onClick={() => setOpen((value) => !value)}
-        className="grid h-14 w-14 place-items-center rounded-full bg-accent text-white shadow-lg shadow-accent/25"
+        className="grid h-14 w-14 place-items-center rounded-[24px] bg-plum-voltage text-bone"
         data-cursor="magnetic"
       >
         <FiMessageCircle size={22} />

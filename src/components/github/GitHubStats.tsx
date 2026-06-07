@@ -40,7 +40,7 @@ export function GitHubStats() {
   }, []);
 
   return (
-    <section id="github" className="section-shell py-24 sm:py-32">
+    <section id="github" className="section-shell py-[60px]">
       <SectionHeading
         eyebrow="GitHub"
         title="A public build trail, fetched live."
@@ -52,38 +52,38 @@ export function GitHubStats() {
         initial="hidden"
         whileInView="visible"
         viewport={{ once: true, margin: "-80px" }}
-        className="premium-border bg-white/[0.025] p-6 sm:p-8"
+        className="premium-border bg-void p-6"
       >
         <motion.div variants={fadeUp} className="mb-8 flex flex-col gap-4 sm:flex-row sm:items-center sm:justify-between">
           <div className="flex items-center gap-4">
-            <div className="grid h-12 w-12 place-items-center rounded-full bg-white text-black">
+            <div className="grid h-12 w-12 place-items-center rounded-[24px] bg-plum-voltage text-bone">
               <FaGithub size={24} />
             </div>
             <div>
-              <h3 className="text-xl font-semibold text-white">sachinmasti</h3>
-              <p className="text-sm text-muted">GitHub profile metrics</p>
+              <h3 className="text-sm font-semibold uppercase tracking-[0.05em] text-bone">sachinmasti</h3>
+              <p className="text-[15px] font-normal leading-[1.5] tracking-[0.025em] text-smoke">GitHub profile metrics</p>
             </div>
           </div>
           <a
             href="https://github.com/sachinmasti"
             target="_blank"
             rel="noreferrer"
-            className="inline-flex min-h-11 items-center justify-center rounded-full border border-line px-5 text-sm font-semibold text-white transition hover:border-accent hover:text-accent"
+            className="inline-flex items-center justify-center rounded-[24px] border border-amber-spark bg-transparent px-6 py-3.5 text-xs font-semibold uppercase tracking-[0.05em] text-amber-spark transition hover:opacity-90"
             data-cursor="magnetic"
           >
             View GitHub Profile
           </a>
         </motion.div>
 
-        {error ? <p className="text-sm text-muted">{error}</p> : null}
+        {error ? <p className="text-[15px] font-normal leading-[1.5] tracking-[0.025em] text-smoke">{error}</p> : null}
 
         <div className="grid gap-4 sm:grid-cols-3">
           {statLabels.map((stat) => (
-            <motion.div key={stat.key} variants={fadeUp} className="border border-white/10 p-5">
-              <p className="text-3xl font-semibold text-white">
+            <motion.div key={stat.key} variants={fadeUp} className="rounded-[24px] border border-white/[0.1] bg-void p-6">
+              <p className="text-3xl font-extralight leading-[0.9] tracking-[-0.04em] text-bone">
                 {profile ? profile[stat.key].toLocaleString() : "..."}
               </p>
-              <p className="mt-2 text-sm text-muted">{stat.label}</p>
+              <p className="mt-2 text-xs font-semibold uppercase tracking-[0.05em] text-smoke">{stat.label}</p>
             </motion.div>
           ))}
         </div>

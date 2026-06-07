@@ -12,7 +12,7 @@ const points = [
 
 export function About() {
   return (
-    <section id="about" className="section-shell py-24 sm:py-32">
+    <section id="about" className="section-shell py-[60px]">
       <SectionHeading
         eyebrow="About"
         title="A focused journey into applied intelligence."
@@ -23,11 +23,11 @@ export function About() {
         initial="hidden"
         whileInView="visible"
         viewport={{ once: true, margin: "-80px" }}
-        className="grid gap-4 md:grid-cols-3"
+        className="grid gap-6 md:grid-cols-3"
       >
         {points.map((point) => (
-          <motion.div key={point} variants={fadeUp} className="premium-border bg-white/[0.025] p-6">
-            <p className="text-base leading-8 text-white/[0.82]">{point}</p>
+          <motion.div key={point} variants={fadeUp} className="premium-border bg-void p-6">
+            <p className="text-[15px] font-normal leading-[1.5] tracking-[0.025em] text-ash">{point}</p>
           </motion.div>
         ))}
       </motion.div>

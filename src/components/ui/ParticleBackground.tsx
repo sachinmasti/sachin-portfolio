@@ -12,8 +12,12 @@ function Particles() {
     const count = 2800;
     const pos = new Float32Array(count * 3);
     const col = new Float32Array(count * 3);
-    const purple = new THREE.Color("#8052ff");
-    const white = new THREE.Color("#ffffff");
+    const palette = [
+      new THREE.Color("#8052ff"),
+      new THREE.Color("#ffb829"),
+      new THREE.Color("#15846e"),
+      new THREE.Color("#ffffff")
+    ];
 
     for (let i = 0; i < count; i += 1) {
       const radius = 5 + Math.random() * 13;
@@ -23,7 +27,7 @@ function Particles() {
       pos[i * 3 + 1] = radius * Math.sin(phi) * Math.sin(theta);
       pos[i * 3 + 2] = radius * Math.cos(phi) - 6;
 
-      const color = Math.random() > 0.55 ? purple : white;
+      const color = palette[Math.floor(Math.random() * palette.length)];
       col[i * 3] = color.r;
       col[i * 3 + 1] = color.g;
       col[i * 3 + 2] = color.b;
@@ -58,7 +62,7 @@ function Particles() {
 
 export const ParticleBackground = memo(function ParticleBackground() {
   return (
-    <div className="fixed inset-0 z-0 bg-surface bg-radial-grid">
+    <div className="fixed inset-0 z-0 bg-void">
       <Canvas
         camera={{ position: [0, 0, 8], fov: 70 }}
         dpr={[1, 1.7]}
@@ -66,7 +70,6 @@ export const ParticleBackground = memo(function ParticleBackground() {
       >
         <Particles />
       </Canvas>
-      <div className="pointer-events-none absolute inset-0 bg-[linear-gradient(to_bottom,rgba(0,0,0,0.2),#000_88%)]" />
     </div>
   );
 });

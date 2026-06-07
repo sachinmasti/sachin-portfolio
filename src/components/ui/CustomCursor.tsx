@@ -43,7 +43,7 @@ export function CustomCursor() {
       {trail.map((point, index) => (
         <span
           key={point.id}
-          className="absolute h-1.5 w-1.5 rounded-full bg-accent"
+          className="absolute h-1.5 w-1.5 rounded-[24px] bg-plum-voltage"
           style={{
             left: point.x,
             top: point.y,
@@ -53,7 +53,7 @@ export function CustomCursor() {
         />
       ))}
       <motion.span
-        className="absolute h-[18px] w-[18px] rounded-full border border-accent bg-accent/20"
+        className="absolute h-[18px] w-[18px] rounded-[24px] border border-plum-voltage bg-plum-voltage/20"
         style={{ x, y }}
         animate={{ scale: active ? 2.3 : 1 }}
         transition={{ type: "spring", stiffness: 380, damping: 26 }}

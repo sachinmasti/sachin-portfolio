@@ -11,11 +11,11 @@ export function ButtonLink({ className, variant = "primary", children, ...props 
     <a
       data-cursor="magnetic"
       className={cn(
-        "inline-flex min-h-12 items-center justify-center rounded-full px-6 text-sm font-semibold transition duration-300",
-        "focus:outline-none focus:ring-2 focus:ring-accent focus:ring-offset-2 focus:ring-offset-black",
+        "inline-flex items-center justify-center rounded-[24px] px-6 py-3.5 text-xs font-semibold uppercase tracking-[0.05em] transition duration-300",
+        "focus:outline-none focus:ring-2 focus:ring-plum-voltage focus:ring-offset-2 focus:ring-offset-void",
         variant === "primary"
-          ? "bg-white text-black hover:bg-accent hover:text-white"
-          : "border border-line bg-transparent text-white hover:border-accent hover:text-accent",
+          ? "bg-plum-voltage text-bone hover:opacity-90"
+          : "border border-amber-spark bg-transparent text-amber-spark hover:opacity-90",
         className
       )}
       {...props}

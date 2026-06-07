@@ -17,7 +17,7 @@ export default function RootLayout({
 }>) {
   return (
     <html lang="en" className="scroll-smooth">
-      <body className="bg-surface font-sans text-ink antialiased">
+      <body className="bg-void font-sans text-bone antialiased">
         <ParticleBackground />
         <CustomCursor />
         {children}

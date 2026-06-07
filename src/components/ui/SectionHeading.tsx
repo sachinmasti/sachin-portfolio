@@ -16,16 +16,16 @@ export function SectionHeading({ eyebrow, title, description }: SectionHeadingPr
       initial="hidden"
       whileInView="visible"
       viewport={{ once: true, margin: "-80px" }}
-      className="mx-auto mb-12 max-w-3xl text-center"
+      className="mx-auto mb-[60px] max-w-3xl text-center"
     >
-      <p className="mb-4 text-xs font-semibold uppercase tracking-[0.28em] text-accent">
+      <p className="mb-4 text-xs font-semibold uppercase tracking-[0.05em] text-plum-voltage">
         {eyebrow}
       </p>
-      <h2 className="text-balance text-3xl font-semibold tracking-tight text-white sm:text-4xl lg:text-5xl">
+      <h2 className="text-balance text-3xl font-extralight leading-[0.9] tracking-[-0.04em] text-bone sm:text-4xl lg:text-5xl">
         {title}
       </h2>
       {description ? (
-        <p className="mx-auto mt-5 max-w-2xl text-base leading-8 text-muted sm:text-lg">
+        <p className="mx-auto mt-5 max-w-2xl text-[15px] font-normal leading-[1.5] tracking-[0.025em] text-smoke sm:text-base">
           {description}
         </p>
       ) : null}

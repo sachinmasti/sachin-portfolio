@@ -4,15 +4,14 @@ import { useState } from "react";
 import { AnimatePresence, motion } from "framer-motion";
 import { HiMenuAlt4, HiX } from "react-icons/hi";
 import { navigation } from "@/data/navigation";
-import { cn } from "@/lib/cn";
 
 export function Navbar() {
   const [open, setOpen] = useState(false);
 
   return (
-    <header className="fixed inset-x-0 top-0 z-50 border-b border-white/10 bg-black/80 backdrop-blur-xl">
+    <header className="fixed inset-x-0 top-0 z-50 border-b border-white/[0.05] bg-void">
       <nav className="section-shell flex h-16 items-center justify-between">
-        <a href="#home" className="text-sm font-semibold tracking-[0.18em] text-white">
+        <a href="#home" className="text-xs font-semibold uppercase tracking-[0.05em] text-bone">
           SACHIN MASTI
         </a>
 
@@ -21,7 +20,7 @@ export function Navbar() {
             <a
               key={item.href}
               href={item.href}
-              className="text-sm text-muted transition hover:text-white"
+              className="text-xs font-semibold uppercase tracking-[0.05em] text-smoke transition hover:text-bone"
               data-cursor="magnetic"
             >
               {item.label}
@@ -31,7 +30,7 @@ export function Navbar() {
 
         <a
           href="#contact"
-          className="hidden rounded-full border border-line px-4 py-2 text-sm font-medium text-white transition hover:border-accent hover:text-accent md:inline-flex"
+          className="hidden rounded-[24px] bg-plum-voltage px-6 py-3.5 text-xs font-semibold uppercase tracking-[0.05em] text-bone transition md:inline-flex"
           data-cursor="magnetic"
         >
           Start a conversation
@@ -41,7 +40,7 @@ export function Navbar() {
           type="button"
           aria-label="Toggle navigation"
           onClick={() => setOpen((value) => !value)}
-          className="grid h-10 w-10 place-items-center rounded-full border border-line text-white md:hidden"
+          className="grid h-10 w-10 place-items-center rounded-[24px] border border-line text-bone md:hidden"
         >
           {open ? <HiX size={20} /> : <HiMenuAlt4 size={20} />}
         </button>
@@ -53,7 +52,7 @@ export function Navbar() {
             initial={{ opacity: 0, y: -8 }}
             animate={{ opacity: 1, y: 0 }}
             exit={{ opacity: 0, y: -8 }}
-            className="border-t border-white/10 bg-black md:hidden"
+            className="border-t border-white/[0.05] bg-void md:hidden"
           >
             <div className="section-shell flex flex-col py-4">
               {navigation.map((item) => (
@@ -61,7 +60,7 @@ export function Navbar() {
                   key={item.href}
                   href={item.href}
                   onClick={() => setOpen(false)}
-                  className={cn("border-b border-white/10 py-4 text-base text-white last:border-0")}
+                  className="border-b border-white/[0.1] py-4 text-xs font-semibold uppercase tracking-[0.05em] text-smoke transition last:border-0 hover:text-bone"
                 >
                   {item.label}
                 </a>
