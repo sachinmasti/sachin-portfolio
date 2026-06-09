@@ -9,9 +9,12 @@ export function Navbar() {
   const [open, setOpen] = useState(false);
 
   return (
-    <header className="fixed inset-x-0 top-0 z-50 border-b border-white/[0.05] bg-void">
-      <nav className="section-shell flex h-16 items-center justify-between">
-        <a href="#home" className="text-xs font-semibold uppercase tracking-[0.05em] text-bone">
+    <header className="fixed inset-x-0 top-0 z-50 bg-void">
+      <nav className="section-shell flex h-18 items-center justify-between py-4">
+        <a
+          href="#home"
+          className="text-body-sm font-semibold tracking-[0.021em] text-bone"
+        >
           SACHIN MASTI
         </a>
 
@@ -20,21 +23,20 @@ export function Navbar() {
             <a
               key={item.href}
               href={item.href}
-              className="text-xs font-semibold uppercase tracking-[0.05em] text-smoke transition hover:text-bone"
+              className="text-body-sm font-regular tracking-[0.021em] text-smoke transition hover:text-bone"
               data-cursor="magnetic"
             >
               {item.label}
             </a>
           ))}
+          <a
+            href="#contact"
+            className="rounded-[24px] bg-plum-voltage px-4 py-3.5 text-caption font-semibold uppercase tracking-[0.05em] text-bone transition hover:opacity-90"
+            data-cursor="magnetic"
+          >
+            Request Access
+          </a>
         </div>
-
-        <a
-          href="#contact"
-          className="hidden rounded-[24px] bg-plum-voltage px-6 py-3.5 text-xs font-semibold uppercase tracking-[0.05em] text-bone transition md:inline-flex"
-          data-cursor="magnetic"
-        >
-          Start a conversation
-        </a>
 
         <button
           type="button"
@@ -60,11 +62,18 @@ export function Navbar() {
                   key={item.href}
                   href={item.href}
                   onClick={() => setOpen(false)}
-                  className="border-b border-white/[0.1] py-4 text-xs font-semibold uppercase tracking-[0.05em] text-smoke transition last:border-0 hover:text-bone"
+                  className="border-b border-white/[0.1] py-4 text-body-sm font-regular tracking-[0.021em] text-smoke transition last:border-0 hover:text-bone"
                 >
                   {item.label}
                 </a>
               ))}
+              <a
+                href="#contact"
+                onClick={() => setOpen(false)}
+                className="mt-4 rounded-[24px] bg-plum-voltage px-4 py-3.5 text-center text-caption font-semibold uppercase tracking-[0.05em] text-bone"
+              >
+                Request Access
+              </a>
             </div>
           </motion.div>
         ) : null}

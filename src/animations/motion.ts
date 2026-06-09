@@ -36,3 +36,11 @@ export const scaleIn: Variants = {
     transition: { duration: 0.6, ease: [0.22, 1, 0.36, 1] }
   }
 };
+
+export const clipReveal: Variants = {
+  hidden: { clipPath: "inset(0 100% 0 0)" },
+  visible: {
+    clipPath: "inset(0 0% 0 0)",
+    transition: { duration: 1.2, ease: [0.22, 1, 0.36, 1] }
+  }
+};

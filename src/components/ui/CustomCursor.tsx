@@ -43,7 +43,7 @@ export function CustomCursor() {
       {trail.map((point, index) => (
         <span
           key={point.id}
-          className="absolute h-1.5 w-1.5 rounded-[24px] bg-plum-voltage"
+          className="absolute h-1.5 w-1.5 bg-plum-voltage"
           style={{
             left: point.x,
             top: point.y,

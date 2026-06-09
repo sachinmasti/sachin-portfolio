@@ -1,7 +1,7 @@
 "use client";
 
 import { motion } from "framer-motion";
-import { fadeUp } from "@/animations/motion";
+import { staggerContainer } from "@/animations/motion";
 
 type SectionHeadingProps = {
   eyebrow: string;
@@ -12,22 +12,43 @@ type SectionHeadingProps = {
 export function SectionHeading({ eyebrow, title, description }: SectionHeadingProps) {
   return (
     <motion.div
-      variants={fadeUp}
+      variants={staggerContainer}
       initial="hidden"
       whileInView="visible"
-      viewport={{ once: true, margin: "-80px" }}
+      viewport={{ once: true, margin: "-100px" }}
       className="mx-auto mb-[60px] max-w-3xl text-center"
     >
-      <p className="mb-4 text-xs font-semibold uppercase tracking-[0.05em] text-plum-voltage">
+      <motion.p
+        variants={{
+          hidden: { opacity: 0, y: 20 },
+          visible: { opacity: 1, y: 0, transition: { duration: 0.6, ease: [0.22, 1, 0.36, 1] } }
+        }}
+        className="mb-4 text-caption font-semibold uppercase tracking-[0.05em] text-plum-voltage"
+      >
         {eyebrow}
-      </p>
-      <h2 className="text-balance text-3xl font-extralight leading-[0.9] tracking-[-0.04em] text-bone sm:text-4xl lg:text-5xl">
+      </motion.p>
+      <motion.h2
+        variants={{
+          hidden: { clipPath: "inset(0 100% 0 0)" },
+          visible: {
+            clipPath: "inset(0 0% 0 0)",
+            transition: { duration: 1.2, delay: 0.15, ease: [0.22, 1, 0.36, 1] }
+          }
+        }}
+        className="text-balance text-heading font-extralight leading-[1.1] tracking-[-0.04em] text-bone sm:text-heading-lg"
+      >
         {title}
-      </h2>
+      </motion.h2>
       {description ? (
-        <p className="mx-auto mt-5 max-w-2xl text-[15px] font-normal leading-[1.5] tracking-[0.025em] text-smoke sm:text-base">
+        <motion.p
+          variants={{
+            hidden: { opacity: 0, y: 20 },
+            visible: { opacity: 1, y: 0, transition: { duration: 0.7, delay: 0.4, ease: [0.22, 1, 0.36, 1] } }
+          }}
+          className="mx-auto mt-5 max-w-2xl text-subheading font-regular leading-[1.5] tracking-[0.025em] text-smoke"
+        >
           {description}
-        </p>
+        </motion.p>
       ) : null}
     </motion.div>
   );

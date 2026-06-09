@@ -8,6 +8,7 @@ import { Hero } from "@/components/hero/Hero";
 import { Navbar } from "@/components/navbar/Navbar";
 import { Projects } from "@/components/projects/Projects";
 import { Skills } from "@/components/skills/Skills";
+import { Story } from "@/components/story/Story";
 
 export default function Home() {
   return (
@@ -16,6 +17,7 @@ export default function Home() {
       <main className="relative z-10">
         <Hero />
         <About />
+        <Story />
         <Skills />
         <Projects />
         <GitHubStats />

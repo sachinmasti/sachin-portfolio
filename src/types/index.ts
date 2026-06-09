@@ -1,3 +1,4 @@
+import type { FC, SVGProps } from "react";
 import type { IconType } from "react-icons";
 
 export type NavItem = {
@@ -8,7 +9,7 @@ export type NavItem = {
 export type Skill = {
   name: string;
   description: string;
-  icon: IconType;
+  icon: FC<SVGProps<SVGSVGElement>>;
 };
 
 export type Project = {

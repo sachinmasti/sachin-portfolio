@@ -1,7 +1,8 @@
 import type { Metadata } from "next";
 import "@/styles/globals.css";
-import { ParticleBackground } from "@/components/ui/ParticleBackground";
+import { CosmicJourney } from "@/components/ui/CosmicJourney";
 import { CustomCursor } from "@/components/ui/CustomCursor";
+import { ScrollProgress } from "@/components/ui/ScrollProgress";
 
 export const metadata: Metadata = {
   title: "Sachin Masti | Data Science Portfolio",
@@ -18,8 +19,10 @@ export default function RootLayout({
   return (
     <html lang="en" className="scroll-smooth">
       <body className="bg-void font-sans text-bone antialiased">
-        <ParticleBackground />
+        <CosmicJourney />
+        <div className="fixed inset-0 z-[1] bg-void/20" />
         <CustomCursor />
+        <ScrollProgress />
         {children}
       </body>
     </html>

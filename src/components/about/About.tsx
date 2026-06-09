@@ -26,8 +26,14 @@ export function About() {
         className="grid gap-6 md:grid-cols-3"
       >
         {points.map((point) => (
-          <motion.div key={point} variants={fadeUp} className="premium-border bg-void p-6">
-            <p className="text-[15px] font-normal leading-[1.5] tracking-[0.025em] text-ash">{point}</p>
+            <motion.div
+              key={point}
+              variants={fadeUp}
+              className="premium-border p-6"
+            >
+            <p className="text-subheading font-regular leading-[1.5] tracking-[0.025em] text-ash">
+              {point}
+            </p>
           </motion.div>
         ))}
       </motion.div>

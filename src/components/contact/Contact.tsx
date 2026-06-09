@@ -43,90 +43,82 @@ export function Contact() {
         description="Reach out for collaborations, project ideas, mentorship, or opportunities."
       />
 
-      <div className="grid gap-6 lg:grid-cols-[0.9fr_1.1fr]">
-        <motion.div
-          variants={fadeUp}
-          initial="hidden"
-          whileInView="visible"
-          viewport={{ once: true, margin: "-80px" }}
-          className="premium-border bg-void p-6"
+      <motion.form
+        variants={fadeUp}
+        initial="hidden"
+        whileInView="visible"
+        viewport={{ once: true, margin: "-80px" }}
+        onSubmit={handleSubmit}
+        className="premium-border mx-auto grid max-w-2xl gap-4 p-6"
+      >
+        <input type="hidden" name="to_email" value="sachinmasti88@gmail.com" />
+        <label className="grid gap-2 text-caption font-semibold uppercase tracking-[0.05em] text-bone">
+          Name
+          <input
+            required
+            name="name"
+            className="min-h-12 rounded-[24px] border border-white/[0.1] bg-void/30 px-4 text-subheading font-regular leading-[1.5] tracking-[0.025em] text-bone outline-none transition placeholder:text-smoke focus:border-plum-voltage"
+            placeholder="Your name"
+          />
+        </label>
+        <label className="grid gap-2 text-caption font-semibold uppercase tracking-[0.05em] text-bone">
+          Email
+          <input
+            required
+            type="email"
+            name="email"
+            className="min-h-12 rounded-[24px] border border-white/[0.1] bg-void/30 px-4 text-subheading font-regular leading-[1.5] tracking-[0.025em] text-bone outline-none transition placeholder:text-smoke focus:border-plum-voltage"
+            placeholder="you@example.com"
+          />
+        </label>
+        <label className="grid gap-2 text-caption font-semibold uppercase tracking-[0.05em] text-bone">
+          Message
+          <textarea
+            required
+            name="message"
+            rows={5}
+            className="resize-none rounded-[24px] border border-white/[0.1] bg-void/30 px-4 py-3 text-subheading font-regular leading-[1.5] tracking-[0.025em] text-bone outline-none transition placeholder:text-smoke focus:border-plum-voltage"
+            placeholder="Tell me what you are building..."
+          />
+        </label>
+        <button
+          type="submit"
+          disabled={status === "sending"}
+          className="rounded-[24px] bg-plum-voltage px-6 py-3.5 text-caption font-semibold uppercase tracking-[0.05em] text-bone transition hover:opacity-90 disabled:opacity-60"
+          data-cursor="magnetic"
         >
-          <h3 className="text-2xl font-extralight leading-[0.9] tracking-[-0.04em] text-bone">Sachin Masti</h3>
-          <p className="mt-4 text-[15px] font-normal leading-[1.5] tracking-[0.025em] text-smoke">
-            Aspiring Data Scientist & Machine Learning Enthusiast focused on building intelligent, practical solutions.
+          {status === "sending" ? "Sending..." : "Send Message"}
+        </button>
+        {status === "success" ? (
+          <p className="text-subheading font-regular leading-[1.5] tracking-[0.025em] text-lichen">
+            Message sent successfully.
           </p>
-          <div className="mt-8 flex flex-wrap gap-3">
-            {socials.map((social) => {
-              const Icon = social.icon;
-              return (
-                <a
-                  key={social.href}
-                  href={social.href}
-                  target="_blank"
-                  rel="noreferrer"
-                  aria-label={social.label}
-                  className="grid h-11 w-11 place-items-center rounded-[24px] border border-line text-ash transition hover:text-bone"
-                  data-cursor="magnetic"
-                >
-                  <Icon size={18} />
-                </a>
-              );
-            })}
-          </div>
-        </motion.div>
+        ) : null}
+        {status === "error" ? (
+          <p className="text-subheading font-regular leading-[1.5] tracking-[0.025em] text-amber-spark">
+            Email service not configured. Add EmailJS credentials to <code className="text-caption rounded-[8px] bg-white/[0.06] px-2 py-0.5">.env.local</code> to receive messages here.
+          </p>
+        ) : null}
 
-        <motion.form
-          variants={fadeUp}
-          initial="hidden"
-          whileInView="visible"
-          viewport={{ once: true, margin: "-80px" }}
-          onSubmit={handleSubmit}
-          className="premium-border grid gap-4 bg-void p-6"
-        >
-          <input type="hidden" name="to_email" value="sachinmasti88@gmail.com" />
-          <label className="grid gap-2 text-xs font-semibold uppercase tracking-[0.05em] text-bone">
-            Name
-            <input
-              required
-              name="name"
-              className="min-h-12 rounded-[24px] border border-white/[0.1] bg-void px-4 text-[15px] font-normal normal-case leading-[1.5] tracking-[0.025em] text-bone outline-none transition placeholder:text-smoke focus:border-plum-voltage"
-              placeholder="Your name"
-            />
-          </label>
-          <label className="grid gap-2 text-xs font-semibold uppercase tracking-[0.05em] text-bone">
-            Email
-            <input
-              required
-              type="email"
-              name="email"
-              className="min-h-12 rounded-[24px] border border-white/[0.1] bg-void px-4 text-[15px] font-normal normal-case leading-[1.5] tracking-[0.025em] text-bone outline-none transition placeholder:text-smoke focus:border-plum-voltage"
-              placeholder="you@example.com"
-            />
-          </label>
-          <label className="grid gap-2 text-xs font-semibold uppercase tracking-[0.05em] text-bone">
-            Message
-            <textarea
-              required
-              name="message"
-              rows={5}
-              className="resize-none rounded-[24px] border border-white/[0.1] bg-void px-4 py-3 text-[15px] font-normal normal-case leading-[1.5] tracking-[0.025em] text-bone outline-none transition placeholder:text-smoke focus:border-plum-voltage"
-              placeholder="Tell me what you are building..."
-            />
-          </label>
-          <button
-            type="submit"
-            disabled={status === "sending"}
-            className="rounded-[24px] bg-plum-voltage px-6 py-3.5 text-xs font-semibold uppercase tracking-[0.05em] text-bone transition hover:opacity-90 disabled:opacity-60"
-            data-cursor="magnetic"
-          >
-            {status === "sending" ? "Sending..." : "Send Message"}
-          </button>
-          {status === "success" ? <p className="text-[15px] font-normal leading-[1.5] tracking-[0.025em] text-bone">Message sent successfully.</p> : null}
-          {status === "error" ? (
-            <p className="text-[15px] font-normal leading-[1.5] tracking-[0.025em] text-smoke">EmailJS is not configured yet or the request failed.</p>
-          ) : null}
-        </motion.form>
-      </div>
+        <div className="mt-2 flex items-center justify-center gap-4 border-t border-white/[0.06] pt-5">
+          {socials.map((social) => {
+            const Icon = social.icon;
+            return (
+              <a
+                key={social.href}
+                href={social.href}
+                target="_blank"
+                rel="noreferrer"
+                aria-label={social.label}
+                className="grid h-10 w-10 place-items-center rounded-[24px] border border-line text-ash transition hover:text-bone"
+                data-cursor="magnetic"
+              >
+                <Icon size={16} />
+              </a>
+            );
+          })}
+        </div>
+      </motion.form>
     </section>
   );
 }
