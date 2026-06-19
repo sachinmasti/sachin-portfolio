@@ -12,7 +12,7 @@
 [![Tailwind CSS](https://img.shields.io/badge/Tailwind_v4-06B6D4?style=for-the-badge&logo=tailwindcss&logoColor=white)](https://tailwindcss.com/)
 [![Three.js](https://img.shields.io/badge/Three.js-black?style=for-the-badge&logo=three.js&logoColor=white)](https://threejs.org/)
 [![Framer Motion](https://img.shields.io/badge/Framer_Motion-black?style=for-the-badge&logo=framer&logoColor=white)](https://www.framer.com/motion/)
-[![Vercel](https://img.shields.io/badge/Deployed_on_Vercel-black?style=for-the-badge&logo=vercel&logoColor=white)](https://sachinmasti.dev)
+[![Vercel](https://img.shields.io/badge/Deployed_on_Vercel-black?style=for-the-badge&logo=vercel&logoColor=white)](https://sachin-portfolio-rho-teal.vercel.app)
 
 <br />
 
@@ -20,7 +20,7 @@
 
 <br />
 
-🌐 **[sachinmasti.dev](https://sachinmasti.dev)** &nbsp;·&nbsp; 📓 **[Medium Blog](https://medium.com/@Sachinmasti)** &nbsp;·&nbsp; 🐙 **[GitHub](https://github.com/sachinmasti)**
+🌐 **[sachin-portfolio-rho-teal.vercel.app](https://sachin-portfolio-rho-teal.vercel.app)** &nbsp;·&nbsp; 📓 **[Medium Blog](https://medium.com/@Sachinmasti)** &nbsp;·&nbsp; 🐙 **[GitHub](https://github.com/sachinmasti)**
 
 <br />
 
@@ -44,7 +44,7 @@ This isn't just a portfolio. It's a **narrative told in code**.
 
 | Page | URL |
 |---|---|
-| 🌐 Portfolio | [sachinmasti.dev](https://sachinmasti.dev) |
+| 🌐 Portfolio | [sachin-portfolio-rho-teal.vercel.app](https://sachin-portfolio-rho-teal.vercel.app) |
 | 📓 Blog | [medium.com/@Sachinmasti](https://medium.com/@Sachinmasti) |
 | 🐙 GitHub | [github.com/sachinmasti](https://github.com/sachinmasti) |
 
@@ -220,7 +220,7 @@ The site is deployed on **Vercel** with automatic CI/CD on every push to `main`.
 
 [![Deploy with Vercel](https://vercel.com/button)](https://vercel.com/new/clone?repository-url=https://github.com/sachinmasti/sachin-portfolio)
 
-**Live URL:** [sachinmasti.dev](https://sachinmasti.dev)
+**Live URL:** [sachin-portfolio-rho-teal.vercel.app](https://sachin-portfolio-rho-teal.vercel.app)
 
 ---
 
@@ -251,7 +251,7 @@ Writing to document the learning journey, not just the wins.
 Have a project idea or just want to connect?
 
 📧 **sachinmasti88@gmail.com**  
-🌐 **[sachinmasti.dev/#contact](https://sachinmasti.dev/#contact)**
+🌐 **[sachin-portfolio-rho-teal.vercel.app/#contact](https://sachin-portfolio-rho-teal.vercel.app/#contact)**
 
 ---
 
