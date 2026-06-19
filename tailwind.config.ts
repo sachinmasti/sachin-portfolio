@@ -9,13 +9,14 @@ const config: Config = {
         bone: "#ffffff",
         ash: "#bdbdbd",
         smoke: "#9a9a9a",
-        "plum-voltage": "#8052ff",
+        "plum-voltage": "#21F1A8",
         "amber-spark": "#ffb829",
         lichen: "#15846e",
+        tiffany: "#21F1A8",
         surface: "#000000",
         ink: "#ffffff",
         muted: "#9a9a9a",
-        accent: "#8052ff",
+        accent: "#21F1A8",
         line: "rgba(255,255,255,0.1)"
       },
       fontFamily: {

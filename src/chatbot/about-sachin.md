@@ -1,7 +1,7 @@
 # About Sachin
 
-Sachin Masti is an aspiring Data Scientist passionate about solving problems using data and technology.
+Sachin Masti is a Data Scientist passionate about solving problems using data and technology.
 
-His journey started with Python and expanded into Statistics, Data Analysis, Machine Learning and Data Visualization.
+His expertise spans Python, Statistics, Data Analysis, Machine Learning and Data Visualization.
 
-He is currently focused on building real-world projects and strengthening mathematical foundations.
+He builds end-to-end ML pipelines and production-grade data systems that deliver real-world impact.
