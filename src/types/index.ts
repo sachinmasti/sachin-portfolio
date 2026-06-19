@@ -15,8 +15,10 @@ export type Skill = {
 export type Project = {
   title: string;
   description: string;
-  status: "In Progress" | "Planned" | "Live";
+  status: string;
   tags: string[];
+  github?: string;
+  live?: string;
 };
 
 export type SocialLink = {
