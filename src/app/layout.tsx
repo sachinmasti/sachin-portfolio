@@ -19,7 +19,7 @@ export default function RootLayout({
 }>) {
   return (
     <html lang="en" className="scroll-smooth">
-      <body className="bg-void font-sans text-bone antialiased">
+      <body className="bg-void font-sans text-bone antialiased" suppressHydrationWarning>
         <CosmicJourney />
         <div className="fixed inset-0 z-[1] bg-void/20" />
         <CustomCursor />

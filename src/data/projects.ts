@@ -1,5 +1,6 @@
 import type { Project } from "@/types";
 
+
 export const projects: Project[] = [
   {
     title: "Airbnb NYC Price Predictor",
@@ -9,6 +10,14 @@ export const projects: Project[] = [
     tags: ["Python", "scikit-learn", "Regression", "Render"],
     github: "https://github.com/sachinmasti/airbnb-nyc-price-predictor",
     live: "https://airbnb-nyc-price-predictor.onrender.com"
+  },
+  {
+    title: "Teen Mental Health Predictor API",
+    description:
+      "FastAPI + Pydantic v2 API predicting academic performance from social media habits, sleep patterns, and mental health indicators. SGDRegressor model with full preprocessing pipeline.",
+    status: "Completed",
+    tags: ["FastAPI", "Pydantic", "Python", "scikit-learn", "API"],
+    github: "https://github.com/sachinmasti/Api-with-fast-api"
   },
   {
     title: "Spam Classifier",

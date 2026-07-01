@@ -213,19 +213,24 @@ export function OfflineGame() {
   }, [started, initStars]);
 
   useEffect(() => {
+    const pressed = new Set<string>();
     function handleKey(e: KeyboardEvent) {
+      pressed.add(e.key);
       keysRef.current = {
-        left: e.key === "ArrowLeft" || e.key === "a",
-        right: e.key === "ArrowRight" || e.key === "d",
-        up: e.key === "ArrowUp" || e.key === "w",
-        down: e.key === "ArrowDown" || e.key === "s",
+        left: pressed.has("ArrowLeft") || pressed.has("a"),
+        right: pressed.has("ArrowRight") || pressed.has("d"),
+        up: pressed.has("ArrowUp") || pressed.has("w"),
+        down: pressed.has("ArrowDown") || pressed.has("s"),
       };
     }
     function handleKeyUp(e: KeyboardEvent) {
-      if (e.key === "ArrowLeft" || e.key === "a") keysRef.current.left = false;
-      if (e.key === "ArrowRight" || e.key === "d") keysRef.current.right = false;
-      if (e.key === "ArrowUp" || e.key === "w") keysRef.current.up = false;
-      if (e.key === "ArrowDown" || e.key === "s") keysRef.current.down = false;
+      pressed.delete(e.key);
+      keysRef.current = {
+        left: pressed.has("ArrowLeft") || pressed.has("a"),
+        right: pressed.has("ArrowRight") || pressed.has("d"),
+        up: pressed.has("ArrowUp") || pressed.has("w"),
+        down: pressed.has("ArrowDown") || pressed.has("s"),
+      };
     }
     window.addEventListener("keydown", handleKey);
     window.addEventListener("keyup", handleKeyUp);
