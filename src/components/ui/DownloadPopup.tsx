@@ -46,7 +46,7 @@ export function DownloadPopup({ open, onClose }: Props) {
                 <FiDownload size={24} />
               </div>
               <h3 className="text-[20px] font-extralight leading-[1.2] tracking-[-0.02em] text-bone">
-                Kya aap download karna chahte hain?
+                Download my resume?
               </h3>
               <div className="mt-6 flex w-full flex-col gap-3 sm:flex-row">
                 <button
