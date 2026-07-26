@@ -21,7 +21,7 @@ export function Projects() {
         title="Selected Work"
         description="Real-world Data Science and Machine Learning projects."
       />
-      <div className="grid gap-6 lg:grid-cols-2">
+      <div className="grid gap-5 lg:grid-cols-2">
         {projects.map((project, i) => (
           <motion.article
             key={project.title}
@@ -29,44 +29,44 @@ export function Projects() {
             initial="hidden"
             whileInView="visible"
             viewport={{ once: true, margin: "-80px" }}
-            className={`premium-border flex flex-col p-5 transition-all duration-500 ${borderAccents[i % borderAccents.length]} ${
+            className={`premium-border flex flex-col p-4 transition-all duration-500 ${borderAccents[i % borderAccents.length]} ${
               projects.length % 2 !== 0 && i === projects.length - 1
                 ? "lg:col-span-2 lg:max-w-[50%] lg:mx-auto"
                 : ""
             }`}
           >
-            <div className="mb-6 flex items-start justify-between gap-5">
-              <span className="rounded-[24px] bg-plum-voltage px-4 py-2 text-caption font-semibold uppercase tracking-[0.05em] text-void">
+            <div className="mb-3 flex items-start justify-between gap-4">
+              <span className="rounded-[24px] bg-plum-voltage px-3 py-1 text-caption font-semibold uppercase tracking-[0.05em] text-void">
                 {project.status}
               </span>
-              <FiArrowUpRight className="text-2xl text-ash" />
+              <FiArrowUpRight className="text-xl text-ash" />
             </div>
-            <h3 className="text-heading-sm font-extralight leading-[1.1] tracking-[-0.04em] text-bone">
+            <h3 className="text-lg font-extralight leading-[1.2] tracking-[-0.02em] text-bone">
               {project.title}
             </h3>
-            <p className="mt-3 max-w-2xl text-subheading font-regular leading-[1.5] tracking-[0.025em] text-smoke">
+            <p className="mt-2 max-w-2xl text-body-sm font-regular leading-[1.5] tracking-[0.025em] text-smoke">
               {project.description}
             </p>
-            <div className="mt-auto pt-6 flex flex-wrap gap-2">
+            <div className="mt-auto pt-4 flex flex-wrap gap-2">
               {project.tags.map((tag) => (
                 <span
                   key={tag}
-                  className="rounded-[24px] border border-white/[0.1] px-3 py-1 text-caption font-semibold uppercase tracking-[0.05em] text-ash"
+                  className="rounded-[24px] border border-white/[0.1] px-2 py-0.5 text-caption font-semibold uppercase tracking-[0.05em] text-ash"
                 >
                   {tag}
                 </span>
               ))}
             </div>
             {(project.github || project.live) && (
-              <div className="mt-5 flex flex-wrap gap-4">
+              <div className="mt-3 flex flex-wrap gap-3">
                 {project.github && (
                   <a
                     href={project.github}
                     target="_blank"
                     rel="noopener noreferrer"
-                    className="flex items-center gap-2 text-caption font-semibold uppercase tracking-[0.05em] text-smoke transition-colors hover:text-plum-voltage"
+                    className="flex items-center gap-1.5 text-caption font-semibold uppercase tracking-[0.05em] text-smoke transition-colors hover:text-plum-voltage"
                   >
-                    <FiGithub size={16} />
+                    <FiGithub size={14} />
                     Code
                   </a>
                 )}
@@ -75,9 +75,9 @@ export function Projects() {
                     href={project.live}
                     target="_blank"
                     rel="noopener noreferrer"
-                    className="flex items-center gap-2 text-caption font-semibold uppercase tracking-[0.05em] text-smoke transition-colors hover:text-lichen"
+                    className="flex items-center gap-1.5 text-caption font-semibold uppercase tracking-[0.05em] text-smoke transition-colors hover:text-lichen"
                   >
-                    <FiExternalLink size={16} />
+                    <FiExternalLink size={14} />
                     Live Demo
                   </a>
                 )}

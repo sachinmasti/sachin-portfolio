@@ -18,29 +18,29 @@ export function Blog() {
         initial="hidden"
         whileInView="visible"
         viewport={{ once: true, margin: "-80px" }}
-        className="grid gap-6 md:grid-cols-2"
+        className="grid gap-5 md:grid-cols-2"
       >
         {featuredPosts.map((post) => (
           <motion.article
             key={post.title}
             variants={fadeUp}
-            className="premium-border flex flex-col p-5 transition-all duration-500 hover:border-plum-voltage/40"
+            className="premium-border flex flex-col p-4 transition-all duration-500 hover:border-plum-voltage/40"
           >
-            <p className="mb-6 text-caption font-semibold uppercase tracking-[0.05em] text-plum-voltage">
+            <p className="mb-3 text-caption font-semibold uppercase tracking-[0.05em] text-plum-voltage">
               {post.platform}
             </p>
-            <h3 className="text-heading-sm font-extralight leading-[1.1] tracking-[-0.04em] text-bone">
+            <h3 className="text-lg font-extralight leading-[1.2] tracking-[-0.02em] text-bone">
               {post.title}
             </h3>
-            <p className="mt-3 text-subheading font-regular leading-[1.5] tracking-[0.025em] text-smoke">
+            <p className="mt-2 text-body-sm font-regular leading-[1.5] tracking-[0.025em] text-smoke">
               {post.description}
             </p>
-            <div className="mt-auto pt-6">
+            <div className="mt-auto pt-4">
               <a
                 href={post.href}
                 target="_blank"
                 rel="noreferrer"
-                className="inline-flex items-center gap-2 rounded-[24px] bg-plum-voltage px-5 py-3 text-caption font-semibold uppercase tracking-[0.05em] text-void transition hover:opacity-90"
+                className="inline-flex items-center gap-2 rounded-[24px] bg-plum-voltage px-4 py-2 text-caption font-semibold uppercase tracking-[0.05em] text-void transition hover:opacity-90"
                 data-cursor="magnetic"
               >
                 Read On Medium <FiArrowUpRight />
