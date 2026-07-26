@@ -1,7 +1,7 @@
 "use client";
-import { FormEvent, useState } from "react";
+import { FormEvent, MouseEvent, useState } from "react";
 import emailjs from "@emailjs/browser";
-import { motion } from "framer-motion";
+import { motion, useMotionTemplate, useMotionValue } from "framer-motion";
 import { fadeUp } from "@/animations/motion";
 import { SectionHeading } from "@/components/ui/SectionHeading";
 import { FaEnvelope } from "react-icons/fa6";
@@ -11,6 +11,14 @@ type Status = "idle" | "sending" | "success" | "error";
 
 export function Contact() {
   const [status, setStatus] = useState<Status>("idle");
+  const mouseX = useMotionValue(0);
+  const mouseY = useMotionValue(0);
+
+  function handleMouseMove({ currentTarget, clientX, clientY }: MouseEvent) {
+    const { left, top } = currentTarget.getBoundingClientRect();
+    mouseX.set(clientX - left);
+    mouseY.set(clientY - top);
+  }
 
   async function handleSubmit(event: FormEvent<HTMLFormElement>) {
     event.preventDefault();
@@ -48,10 +56,23 @@ export function Contact() {
         initial="hidden"
         whileInView="visible"
         viewport={{ once: true, margin: "-80px" }}
-        className="relative mx-auto max-w-xl overflow-hidden rounded-[32px] border border-white/[0.08] bg-void/30 p-6 backdrop-blur-md transition-colors duration-500 hover:bg-void/40 sm:p-8"
+        onMouseMove={handleMouseMove}
+        className="group relative mx-auto max-w-xl overflow-hidden rounded-[32px] border border-white/[0.08] bg-void/30 p-6 backdrop-blur-md transition-colors duration-500 hover:bg-void/40 sm:p-8"
       >
         <div className="absolute -left-32 -top-32 h-64 w-64 rounded-full bg-plum-voltage/10 blur-[80px]" />
         <div className="absolute -bottom-32 -right-32 h-64 w-64 rounded-full bg-amber-spark/5 blur-[80px]" />
+        <motion.div
+          className="pointer-events-none absolute -inset-px rounded-[32px] opacity-0 transition duration-300 group-hover:opacity-100"
+          style={{
+            background: useMotionTemplate`
+              radial-gradient(
+                400px circle at ${mouseX}px ${mouseY}px,
+                rgba(33,241,168, 0.15),
+                transparent 80%
+              )
+            `,
+          }}
+        />
         
         <div className="relative z-10 flex flex-col items-center mb-6 text-center">
           <h3 className="text-[26px] font-extralight leading-[1.1] tracking-[-0.04em] text-bone transition-colors hover:text-plum-voltage">
