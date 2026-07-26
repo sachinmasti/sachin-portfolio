@@ -20,6 +20,22 @@ export const projects: Project[] = [
     github: "https://github.com/sachinmasti/Api-with-fast-api"
   },
   {
+    title: "HR Attrition — EDA & ML Pipeline",
+    description:
+      "End-to-end analysis of messy HR data: data cleaning, EDA, feature engineering, and classification pipeline (LogisticRegression + PCA) predicting employee attrition with 84% accuracy.",
+    status: "Completed",
+    tags: ["Python", "EDA", "scikit-learn", "Classification", "Pandas"],
+    github: "https://github.com/sachinmasti/HR-attrition"
+  },
+  {
+    title: "NYC Airbnb EDA & Price Prediction",
+    description:
+      "Exploratory analysis and regression modeling on 49K NYC Airbnb listings. Feature engineering includes geospatial distance, text mining (TF-IDF), and temporal features. Best model: CatBoost (R² 0.627).",
+    status: "Completed",
+    tags: ["Python", "EDA", "CatBoost", "XGBoost", "Regression", "Geospatial"],
+    github: "https://github.com/sachinmasti/Air_Bnb_house-_price_prediction_EDA_files"
+  },
+  {
     title: "Spam Classifier",
     description:
       "Text classification model to detect spam messages. Built with NLP techniques and deployed as a web app on Render.",
