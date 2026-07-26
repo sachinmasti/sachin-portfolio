@@ -46,11 +46,8 @@ export function DownloadPopup({ open, onClose }: Props) {
                 <FiDownload size={24} />
               </div>
               <h3 className="text-[20px] font-extralight leading-[1.2] tracking-[-0.02em] text-bone">
-                Ready to download my resume?
+                Kya aap download karna chahte hain?
               </h3>
-              <p className="mt-2 text-body-sm font-regular leading-[1.5] tracking-[0.025em] text-smoke">
-                You&apos;re about to download my latest resume with my skills, experience, and projects.
-              </p>
               <div className="mt-6 flex w-full flex-col gap-3 sm:flex-row">
                 <button
                   type="button"
