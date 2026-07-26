@@ -5,7 +5,7 @@ import type { SocialLink } from "@/types";
 export const socials: SocialLink[] = [
   { label: "GitHub", href: "https://github.com/sachinmasti", icon: FaGithub },
   { label: "LinkedIn", href: "https://www.linkedin.com/in/sachin-masti-23a275228/", icon: FaLinkedinIn },
-  { label: "LeetCode", href: "https://leetcode.com/u/sachinmasti/", icon: SiLeetcode },
+  { label: "LeetCode", href: "https://leetcode.com/u/sachin_masti/", icon: SiLeetcode },
   { label: "Medium", href: "https://medium.com/@sachinmasti88", icon: SiMedium },
   { label: "X", href: "https://x.com/sachin_masti88", icon: FaXTwitter },
   { label: "Instagram", href: "https://www.instagram.com/mai_sachin.845", icon: FaInstagram }

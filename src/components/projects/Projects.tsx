@@ -34,7 +34,7 @@ function ProjectCard({ project, index, isLastOdd }: { project: Project, index: n
       onMouseMove={handleMouseMove}
       className={`group relative flex flex-col overflow-hidden rounded-[24px] border border-white/[0.08] bg-void/30 p-4 backdrop-blur-md transition-colors duration-500 hover:bg-void/50 ${borderAccents[index % borderAccents.length]} ${
         isLastOdd
-          ? "lg:col-span-2 lg:max-w-[50%] lg:mx-auto lg:w-full"
+          ? "md:col-span-2 md:max-w-[50%] md:mx-auto md:w-full"
           : ""
       }`}
     >
@@ -53,37 +53,37 @@ function ProjectCard({ project, index, isLastOdd }: { project: Project, index: n
       
       <div className="relative z-10 flex flex-col h-full">
         <div className="mb-3 flex items-start justify-between gap-4">
-          <span className="rounded-[24px] bg-plum-voltage px-3 py-1 text-caption font-semibold uppercase tracking-[0.05em] text-void shadow-[0_0_12px_rgba(33,241,168,0.4)]">
+          <span className="rounded-[24px] bg-plum-voltage px-3 py-1 text-[11px] font-semibold uppercase tracking-[0.05em] text-void shadow-[0_0_12px_rgba(33,241,168,0.4)]">
             {project.status}
           </span>
           <FiArrowUpRight className="text-xl text-ash transition-transform duration-300 group-hover:translate-x-1 group-hover:-translate-y-1 group-hover:text-plum-voltage" />
         </div>
-        <h3 className="text-lg font-extralight leading-[1.2] tracking-[-0.02em] text-bone transition-colors duration-300 group-hover:text-plum-voltage">
+        <h3 className="text-[18px] font-extralight leading-[1.2] tracking-[-0.02em] text-bone transition-colors duration-300 group-hover:text-plum-voltage">
           {project.title}
         </h3>
-        <p className="mt-2 max-w-2xl text-body-sm font-regular leading-[1.5] tracking-[0.025em] text-smoke transition-colors duration-300 group-hover:text-bone/80">
+        <p className="mt-2 max-w-2xl text-[14px] font-regular leading-[1.5] tracking-[0.025em] text-smoke transition-colors duration-300 group-hover:text-bone/80">
           {project.description}
         </p>
         <div className="mt-auto pt-4 flex flex-wrap gap-2">
           {project.tags.map((tag) => (
             <span
               key={tag}
-              className="rounded-[24px] border border-white/[0.1] bg-white/[0.02] px-2.5 py-1 text-caption font-semibold uppercase tracking-[0.05em] text-ash transition-colors duration-300 group-hover:border-white/[0.2] group-hover:bg-white/[0.05] group-hover:text-bone"
+              className="rounded-[24px] border border-white/[0.1] bg-white/[0.02] px-2.5 py-1 text-[10px] font-semibold uppercase tracking-[0.05em] text-ash transition-colors duration-300 group-hover:border-white/[0.2] group-hover:bg-white/[0.05] group-hover:text-bone"
             >
               {tag}
             </span>
           ))}
         </div>
         {(project.github || project.live) && (
-          <div className="mt-3 flex flex-wrap gap-3 border-t border-white/[0.05] pt-3 transition-colors duration-300 group-hover:border-white/[0.1]">
+          <div className="mt-4 flex flex-wrap gap-4 border-t border-white/[0.05] pt-4 transition-colors duration-300 group-hover:border-white/[0.1]">
             {project.github && (
               <a
                 href={project.github}
                 target="_blank"
                 rel="noopener noreferrer"
-                className="flex items-center gap-2 text-caption font-semibold uppercase tracking-[0.05em] text-smoke transition-all duration-300 hover:text-plum-voltage hover:opacity-80"
+                className="flex items-center gap-1.5 text-[11px] font-semibold uppercase tracking-[0.05em] text-smoke transition-all duration-300 hover:text-plum-voltage hover:opacity-80"
               >
-                <FiGithub size={16} />
+                <FiGithub size={14} />
                 Code
               </a>
             )}
@@ -92,9 +92,9 @@ function ProjectCard({ project, index, isLastOdd }: { project: Project, index: n
                 href={project.live}
                 target="_blank"
                 rel="noopener noreferrer"
-                className="flex items-center gap-2 text-caption font-semibold uppercase tracking-[0.05em] text-smoke transition-all duration-300 hover:text-lichen hover:opacity-80"
+                className="flex items-center gap-1.5 text-[11px] font-semibold uppercase tracking-[0.05em] text-smoke transition-all duration-300 hover:text-lichen hover:opacity-80"
               >
-                <FiExternalLink size={16} />
+                <FiExternalLink size={14} />
                 Live Demo
               </a>
             )}
@@ -113,7 +113,7 @@ export function Projects() {
         title="Selected Work"
         description="Real-world Data Science and Machine Learning projects."
       />
-      <div className="grid gap-5 lg:grid-cols-2">
+      <div className="mx-auto max-w-5xl grid gap-5 md:grid-cols-2">
         {projects.map((project, i) => (
           <ProjectCard 
             key={project.title} 
