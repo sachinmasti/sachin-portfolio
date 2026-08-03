@@ -4,28 +4,38 @@ export async function GET() {
   const username = "sachinmasti";
 
   try {
-    const [userRes, commitsRes, prsRes] = await Promise.all([
+    const [userRes, commitsRes, contribRes] = await Promise.all([
       fetch(`https://api.github.com/users/${username}`, {
         headers: { Accept: "application/vnd.github+json" },
+        next: { revalidate: 3600 },
       }),
       fetch(`https://api.github.com/search/commits?q=author:${username}`, {
         headers: { Accept: "application/vnd.github.cloak-preview" },
+        next: { revalidate: 3600 },
       }),
-      fetch(`https://api.github.com/search/issues?q=author:${username}+type:pr`),
+      fetch(`https://github-contributions-api.jogruber.de/v4/${username}?y=last`, {
+        next: { revalidate: 3600 },
+      }).catch(() => null),
     ]);
 
-    const userData = userRes.ok ? await userRes.json() : null;
-    const commitsData = commitsRes.ok ? await commitsRes.json() : null;
-    const prsData = prsRes.ok ? await prsRes.json() : null;
+    const userData = userRes?.ok ? await userRes.json() : null;
+    const commitsData = commitsRes?.ok ? await commitsRes.json() : null;
+    const contribData = contribRes?.ok ? await contribRes.json() : null;
 
     return NextResponse.json({
-      public_repos: userData?.public_repos ?? 0,
-      followers: userData?.followers ?? 0,
-      following: userData?.following ?? 0,
-      commits: commitsData?.total_count ?? 0,
-      prs: prsData?.total_count ?? 0,
+      public_repos: userData?.public_repos ?? 32,
+      commits: commitsData?.total_count ?? 369,
+      contributions: contribData?.contributions ?? [],
+      totalContributions: contribData?.total?.lastYear ?? commitsData?.total_count ?? 369,
     });
   } catch {
-    return NextResponse.json({ error: "GitHub API unavailable" }, { status: 502 });
+    return NextResponse.json({
+      public_repos: 32,
+      commits: 369,
+      contributions: [],
+      totalContributions: 369,
+    });
   }
 }
+
+
