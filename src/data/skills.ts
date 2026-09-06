@@ -1,4 +1,4 @@
-import { PythonLogo, PandasLogo, NumPyLogo, SQLLogo, TableauLogo, StatsLogo, MLLogo, DataVizLogo, PydanticLogo, FastAPILogo } from "@/components/ui/TechLogo";
+import { PythonLogo, PandasLogo, NumPyLogo, SQLLogo, TableauLogo, StatsLogo, MLLogo, DataVizLogo, PydanticLogo, FastAPILogo, PyTorchLogo } from "@/components/ui/TechLogo";
 import type { Skill } from "@/types";
 
 export const skills: Skill[] = [
@@ -11,5 +11,6 @@ export const skills: Skill[] = [
   { name: "Machine Learning", description: "Predictive modeling, evaluation, and iteration.", icon: MLLogo },
   { name: "Data Visualization", description: "Clear charts that turn complexity into decisions.", icon: DataVizLogo },
   { name: "Pydantic", description: "Data validation and settings management via Python type annotations.", icon: PydanticLogo },
-  { name: "FastAPI", description: "High-performance API development with automatic OpenAPI docs.", icon: FastAPILogo }
+  { name: "FastAPI", description: "High-performance API development with automatic OpenAPI docs.", icon: FastAPILogo },
+  { name: "PyTorch", description: "Deep learning framework for building neural networks.", icon: PyTorchLogo }
 ];

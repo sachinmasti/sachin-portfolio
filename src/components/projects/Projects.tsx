@@ -1,4 +1,5 @@
 "use client";
+import { useState } from "react";
 import { motion, useMotionTemplate, useMotionValue } from "framer-motion";
 import { FiArrowUpRight, FiGithub, FiExternalLink } from "react-icons/fi";
 import { fadeUp } from "@/animations/motion";
@@ -15,7 +16,7 @@ const borderAccents = [
   "group-hover:border-amber-spark/60",
 ];
 
-function ProjectCard({ project, index, isLastOdd }: { project: Project, index: number, isLastOdd: boolean }) {
+function ProjectCard({ project, index, isLastOdd, isDimmed, onHover }: { project: Project, index: number, isLastOdd: boolean, isDimmed: boolean, onHover: () => void }) {
   const mouseX = useMotionValue(0);
   const mouseY = useMotionValue(0);
 
@@ -32,11 +33,12 @@ function ProjectCard({ project, index, isLastOdd }: { project: Project, index: n
       whileInView="visible"
       viewport={{ once: true, margin: "-80px" }}
       onMouseMove={handleMouseMove}
-      className={`group relative flex flex-col overflow-hidden rounded-[24px] border border-white/[0.08] bg-void/30 p-4 backdrop-blur-md transition-colors duration-500 hover:bg-void/50 ${borderAccents[index % borderAccents.length]} ${
+      onMouseEnter={onHover}
+      className={`group relative flex flex-col overflow-hidden rounded-[24px] border border-white/[0.08] bg-void/30 p-4 backdrop-blur-md transition-all duration-500 hover:bg-void/50 ${borderAccents[index % borderAccents.length]} ${
         isLastOdd
           ? "md:col-span-2 md:max-w-[50%] md:mx-auto md:w-full"
           : ""
-      }`}
+      } ${isDimmed ? "opacity-60 saturate-50" : "opacity-100 saturate-100"}`}
     >
       <motion.div
         className="pointer-events-none absolute -inset-px rounded-[24px] opacity-0 transition duration-300 group-hover:opacity-100"
@@ -58,14 +60,14 @@ function ProjectCard({ project, index, isLastOdd }: { project: Project, index: n
           </span>
           <FiArrowUpRight className="text-xl text-ash transition-transform duration-300 group-hover:translate-x-1 group-hover:-translate-y-1 group-hover:text-plum-voltage" />
         </div>
-        <h3 className="text-[18px] font-extralight leading-[1.2] tracking-[-0.02em] text-bone transition-colors duration-300 group-hover:text-plum-voltage">
+        <h3 className="text-[16px] font-extralight leading-[1.2] tracking-[-0.02em] text-bone transition-colors duration-300 group-hover:text-plum-voltage">
           {project.title}
         </h3>
-        <p className="mt-2 max-w-2xl text-[14px] font-regular leading-[1.5] tracking-[0.025em] text-smoke transition-colors duration-300 group-hover:text-bone/80">
+        <p className="mt-2 line-clamp-2 max-w-2xl text-[13px] font-regular leading-[1.5] tracking-[0.025em] text-smoke transition-colors duration-300 group-hover:text-bone/80">
           {project.description}
         </p>
-        <div className="mt-auto pt-4 flex flex-wrap gap-2">
-          {project.tags.map((tag) => (
+        <div className="mt-auto pt-3 flex flex-wrap gap-2">
+          {project.tags.slice(0, 4).map((tag) => (
             <span
               key={tag}
               className="rounded-[24px] border border-white/[0.1] bg-white/[0.02] px-2.5 py-1 text-[10px] font-semibold uppercase tracking-[0.05em] text-ash transition-colors duration-300 group-hover:border-white/[0.2] group-hover:bg-white/[0.05] group-hover:text-bone"
@@ -106,6 +108,8 @@ function ProjectCard({ project, index, isLastOdd }: { project: Project, index: n
 }
 
 export function Projects() {
+  const [hovered, setHovered] = useState<number | null>(null);
+
   return (
     <section id="projects" className="section-shell py-8 sm:py-[60px]">
       <SectionHeading
@@ -113,13 +117,15 @@ export function Projects() {
         title="Selected Work"
         description="Real-world Data Science and Machine Learning projects."
       />
-      <div className="mx-auto max-w-5xl grid gap-5 md:grid-cols-2">
+      <div className="mx-auto max-w-5xl grid gap-4 md:grid-cols-2" onMouseLeave={() => setHovered(null)}>
         {projects.map((project, i) => (
           <ProjectCard 
             key={project.title} 
             project={project} 
             index={i} 
-            isLastOdd={projects.length % 2 !== 0 && i === projects.length - 1} 
+            isLastOdd={projects.length % 2 !== 0 && i === projects.length - 1}
+            isDimmed={hovered !== null && hovered !== i}
+            onHover={() => setHovered(i)}
           />
         ))}
       </div>

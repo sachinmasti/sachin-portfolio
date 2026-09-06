@@ -5,9 +5,9 @@ export const projects: Project[] = [
   {
     title: "Airbnb NYC Price Predictor",
     description:
-      "Regression model trained on 2019 NYC Airbnb dataset to predict listing prices. Built with Python, scikit-learn, and deployed on Render.",
+      "Cleaned a 48,895-listing NYC dataset and engineered pricing signals like Times Square proximity and TF-IDF keyword detection. Tuned a CatBoost regressor to R² = 0.63 (MAE ≈ $31). Deployed on Render via Flask with a rule-based fallback estimator.",
     status: "Completed",
-    tags: ["Python", "scikit-learn", "Regression", "Render"],
+    tags: ["Python", "CatBoost", "Feature Engineering", "Flask", "Render"],
     github: "https://github.com/sachinmasti/airbnb-nyc-price-predictor",
     live: "https://airbnb-nyc-price-predictor.onrender.com"
   },
@@ -36,12 +36,21 @@ export const projects: Project[] = [
     github: "https://github.com/sachinmasti/Air_Bnb_house-_price_prediction_EDA_files"
   },
   {
-    title: "Spam Classifier",
+    title: "Spam Detection System",
     description:
-      "Text classification model to detect spam messages. Built with NLP techniques and deployed as a web app on Render.",
+      "Built an end-to-end spam classifier using TF-IDF and an Optuna-tuned LightGBM on a 5k+ message dataset. Handled class imbalance with SMOTE (99.63% test AUC). Shipped as a real-time FastAPI endpoint in a Docker container with Pydantic v2 validation.",
     status: "Completed",
-    tags: ["Python", "NLP", "Classification", "Render"],
+    tags: ["Python", "LightGBM", "FastAPI", "Docker", "Pydantic", "NLP"],
     github: "https://github.com/sachinmasti/spam_classifier",
     live: "https://spam-classifier-ffg1.onrender.com"
+  },
+  {
+    title: "Customer Churn Prediction System — ChurnGuard AI",
+    description:
+      "End-to-end system on a 20,000-customer dataset. Trained a bagging ensemble of 150 XGBoost classifiers reaching 74.1% accuracy. Deployed as two containerized services (FastAPI inference API + Gradio dashboard) via Docker Compose on Render.",
+    status: "Completed",
+    tags: ["Python", "XGBoost", "FastAPI", "Gradio", "Docker", "Machine Learning"],
+    github: "https://github.com/sachinmasti/Customer-Churn-project---",
+    live: "https://churnguard-ui.onrender.com/"
   }
 ];
